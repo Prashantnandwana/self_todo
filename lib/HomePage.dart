@@ -23,6 +23,12 @@ class _HomePageState extends State<HomePage> {
       Navigator.of(context).pop();
     });
   }
+  void deletetodo(int index){
+    setState(() {
+       toDoList.removeAt(index);
+    });
+   
+  }
 
   List toDoList = [
     ["make tutorial", false],
@@ -82,6 +88,7 @@ class _HomePageState extends State<HomePage> {
             task: toDoList[index][0],
             taskCompleted: toDoList[index][1],
             onChanged: (value) => checkBoxChanged(value, index),
+            deleteTask: () => deletetodo(index),
           );
         },
       ),
